@@ -19,6 +19,30 @@ using SwinGameSDK;
 /// ''' </summary>
 static class DiscoveryController
 {
+	private const int SHIPS_TOP = 98;
+	private const int SHIPS_LEFT = 20;
+	private const int SHIPS_HEIGHT = 90;
+
+	private const int SHIPS_WIDTH = 300;
+	private const int TOP_BUTTONS_TOP = 72;
+
+	private const int TOP_BUTTONS_HEIGHT = 46;
+	private const int PLAY_BUTTON_LEFT = 693;
+
+	private const int PLAY_BUTTON_WIDTH = 80;
+	private const int UP_DOWN_BUTTON_LEFT = 410;
+
+	private const int LEFT_RIGHT_BUTTON_LEFT = 350;
+	private const int RANDOM_BUTTON_LEFT = 547;
+
+	private const int RANDOM_BUTTON_WIDTH = 51;
+
+	private const int DIR_BUTTONS_WIDTH = 47;
+
+	private const int TEXT_OFFSET = 5;
+	private static Direction _currentDirection = Direction.UpDown;
+
+	private static ShipName _selectedShip=ShipName.Tug;
 
     /// <summary>
     ///     ''' Handles input during the discovery phase of the game.
