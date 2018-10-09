@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{FCAB1AFD-6BE4-40FC-B1CB-E7B24DE90691}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\GameResources.cs">
+    <Files>
+      <File FileName="src\HighScoreController.cs" Line="204" Column="18" />
+      <File FileName="src\GameController.cs" Line="437" Column="19" />
+      <File FileName="src\MenuController.cs" Line="229" Column="16" />
+      <File FileName="src\Model\AIHardPlayer.cs" Line="218" Column="17" />
+      <File FileName="src\UtilityFunctions.cs" Line="352" Column="18" />
+      <File FileName="src\Model\Player.cs" Line="296" Column="3" />
+      <File FileName="src\DiscoveryController.cs" Line="76" Column="112" />
+      <File FileName="src\Model\SeaGridAdapter.cs" Line="49" Column="39" />
+      <File FileName="src\DeploymentController.cs" Line="62" Column="40" />
+      <File FileName="src\Model\ResultOfAttack.cs" Line="1" Column="1" />
+      <File FileName="src\Model\SeaGrid.cs" Line="14" Column="36" />
+      <File FileName="src\Model\ISeaGrid.cs" Line="11" Column="25" />
+      <File FileName="src\Model\Ship.cs" Line="109" Column="50" />
+      <File FileName="src\Model\AIPlayer.cs" Line="25" Column="21" />
+      <File FileName="src\EndingGameController.cs" Line="37" Column="37" />
+      <File FileName="src\GameLogic.cs" Line="23" Column="8" />
+      <File FileName="src\Model\AIMediumPlayer.cs" Line="72" Column="120" />
+      <File FileName="src\GameResources.cs" Line="274" Column="22" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Battleships PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

@@ -1,0 +1,7 @@
+C:\BattleshipW4\battleshipsC#\bin\Debug\src\Model\SeaGrid.cs
+C:\BattleshipW4\battleshipsC#\bin\Debug\lib\SwinGame.dll.mdb
+C:\BattleshipW4\battleshipsC#\bin\Debug\ConsoleApplication.exe
+C:\BattleshipW4\battleshipsC#\bin\Debug\ConsoleApplication.pdb
+C:\BattleshipW4\battleshipsC#\bin\Debug\SwinGame.dll
+C:\BattleshipW4\battleshipsC#\obj\x86\Debug\ConsoleApplication.exe
+C:\BattleshipW4\battleshipsC#\obj\x86\Debug\ConsoleApplication.pdb

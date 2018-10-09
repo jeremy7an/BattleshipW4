@@ -46,11 +46,11 @@ public class SeaGridAdapter : ISeaGrid
     ///     ''' <param name="x">tile x coordinate</param>
     ///     ''' <param name="y">tile y coordinate</param>
     ///     ''' <returns>a tile, either what it actually is, or if it was a ship then return a sea tile</returns>
-    public TileView Item
+    public TileView this[int x, int y]
     {
         get
         {
-            TileView result = _MyGrid.Item(x, y);
+            TileView result = _MyGrid[x, y];
 
             if (result == TileView.Ship)
                 return TileView.Sea;
@@ -86,13 +86,13 @@ public class SeaGridAdapter : ISeaGrid
         }
     }
 
-    /// <summary>
-    ///     ''' HitTile calls oppon _MyGrid to hit a tile at the row, col
-    ///     ''' </summary>
-    ///     ''' <param name="row">the row its hitting at</param>
-    ///     ''' <param name="col">the column its hitting at</param>
-    ///     ''' <returns>The result from hitting that tile</returns>
-    public AttackResult HitTile(int row, int col)
+	/// <summary>
+	///     ''' HitTile calls oppon _MyGrid to hit a tile at the row, col
+	///     ''' </summary>
+	///     ''' <param name="row">the row its hitting at</param>
+	///     ''' <param name="col">the column its hitting at</param>
+	///     ''' <returns>The result from hitting that tile</returns>
+	public AttackResult HitTile(int row, int col)
     {
         return _MyGrid.HitTile(row, col);
     }

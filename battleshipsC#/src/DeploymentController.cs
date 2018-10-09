@@ -17,7 +17,7 @@ using SwinGameSDK;
 /// ''' The battle phase is handled by the DiscoveryController.
 
 /// ''' </summary>
-static class DiscoveryController
+static class DeploymentController
 {
 	private const int SHIPS_TOP = 98;
 	private const int SHIPS_LEFT = 20;
@@ -51,15 +51,15 @@ static class DiscoveryController
     ///     ''' Escape opens the game menu. Clicking the mouse will
     ///     ''' attack a location.
     ///     ''' </remarks>
-    public static void HandleDiscoveryInput()
+    public static void HandleDeploymentInput()
     {
-        if (SwinGame.KeyTyped(KeyCode.VK_ESCAPE))
-            AddNewState(GameState.ViewingGameMenu);
+        if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
+			GameController.AddNewState(GameState.ViewingGameMenu);
 
-		if (SwinGame.KeyType(KeyCode.VK_UP) || SwinGame.KeyType(KeyCode.VK_Down))
+		if (SwinGame.KeyTyped(KeyCode.vk_UP) || SwinGame.KeyTyped(KeyCode.vk_DOWN))
 			_currentDirection = Direction.UpDown;
 
-		if (SwinGame.KeyType(KeyCode.VK_Left) || SwinGame.KeyType(KeyCode.VK_Right))
+		if (SwinGame.KeyTyped(KeyCode.vk_LEFT) || SwinGame.KeyTyped(KeyCode.vk_RIGHT))
 			_currentDirection = Direction.LeftRight;
 
 		if (SwinGame.KeyTyped(KeyCode.vk_r)) 
