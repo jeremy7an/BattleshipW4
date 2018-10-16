@@ -9,17 +9,30 @@
       <File FileName="src\Model\AIPlayer.cs" Line="65" Column="68" />
       <File FileName="src\Model\AIHardPlayer.cs" Line="209" Column="1" />
       <File FileName="src\Model\AIMediumPlayer.cs" Line="1" Column="1" />
-      <File FileName="src\GameController.cs" Line="349" Column="19" />
+      <File FileName="src\GameController.cs" Line="327" Column="11" />
       <File FileName="src\DeploymentController.cs" Line="172" Column="51" />
       <File FileName="src\DiscoveryController.cs" Line="76" Column="93" />
       <File FileName="src\EndingGameController.cs" Line="39" Column="52" />
-      <File FileName="src\GameLogic.cs" Line="29" Column="16" />
-      <File FileName="src\GameResources.cs" Line="1" Column="1" />
-      <File FileName="src\GameState.cs" Line="6" Column="1" />
-      <File FileName="src\HighScoreController.cs" Line="202" Column="18" />
-      <File FileName="src\MenuController.cs" Line="114" Column="18" />
-      <File FileName="src\UtilityFunctions.cs" Line="139" Column="9" />
+      <File FileName="src\GameLogic.cs" Line="19" Column="3" />
+      <File FileName="src\GameResources.cs" Line="14" Column="12" />
+      <File FileName="src\GameState.cs" Line="50" Column="13" />
+      <File FileName="src\HighScoreController.cs" Line="101" Column="56" />
+      <File FileName="src\MenuController.cs" Line="272" Column="59" />
+      <File FileName="src\UtilityFunctions.cs" Line="135" Column="5" />
       <File FileName="src\Model\Player.cs" Line="15" Column="49" />
+      <File FileName="src\Model\ShipName.cs" Line="1" Column="1" />
+      <File FileName="src\Model\Ship.cs" Line="1" Column="1" />
+      <File FileName="src\Model\SeaGridAdapter.cs" Line="1" Column="1" />
+      <File FileName="src\Model\SeaGrid.cs" Line="1" Column="1" />
+      <File FileName="src\Model\ResultOfAttack.cs" Line="1" Column="1" />
+      <File FileName="src\Model\ISeaGrid.cs" Line="1" Column="1" />
+      <File FileName="src\Model\BattleShipsGame.cs" Line="1" Column="1" />
+      <File FileName="src\Model\AttackResult.cs" Line="1" Column="1" />
+      <File FileName="src\Model\AIOption.cs" Line="1" Column="1" />
+      <File FileName="src\HumanPlayer.cs" Line="1" Column="1" />
+      <File FileName="FAQ.cs" Line="94" Column="104" />
+      <File FileName="src\Model\TileView.cs" Line="1" Column="1" />
+      <File FileName="src\Model\Tile.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />

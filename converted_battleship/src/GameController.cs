@@ -294,6 +294,9 @@ public static class GameController
 			case GameState.ViewingHighScores:
 			HighScoreController.HandleHighScoreInput();
 				break;
+			case GameState.viewingFAQ:
+			FAQ.HandleFAQ();
+			break;
 		}
 
 		UtilityFunctions.UpdateAnimations();
@@ -331,6 +334,9 @@ public static class GameController
 			case GameState.ViewingHighScores:
 			HighScoreController.DrawHighScores();
 				break;
+			case GameState.viewingFAQ:
+			FAQ.DrawFAQ();
+			break;
 		}
 
 		UtilityFunctions.DrawAnimations();
