@@ -42,22 +42,26 @@ public static class GameResources
 		NewImage("Explosion", "explosion.png");
 		NewImage("Splash", "splash.png");
 
+		//Mute/Unmute
+		NewImage ("Mute", "mute.png");
+		NewImage ("Unmute", "unmute.png");
+
 	}
 
 	private static void LoadSounds()
 	{
 		NewSound("Error", "error.wav");
-		NewSound("Hit", "hit.wav");
+		NewSound("Hit", "oof.wav");
 		NewSound("Sink", "sink.wav");
 		NewSound("Siren", "siren.wav");
 		NewSound("Miss", "miss.wav");
-		NewSound("Winner", "winner.wav");
-		NewSound("Lose", "lose.wav");
+		NewSound("Winner", "airhorn.wav");
+		NewSound("Lose", "trombone.wav");
 	}
 
 	private static void LoadMusic()
 	{
-		NewMusic("Background", "horrordrone.mp3");
+		NewMusic("Background", "background_music.mp3");
 	}
 
 	/// <summary>
