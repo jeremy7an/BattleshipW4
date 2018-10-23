@@ -18,6 +18,10 @@ static class HighScoreController
 	private const int NAME_WIDTH = 3;
 
 	private const int SCORES_LEFT = 490;
+
+	//HighScoreToBeatfields - by Jeremy Toh
+	public static int HIGHSCORETOBEAT;
+
 	/// <summary>
 	/// The score structure is used to keep the name and
 	/// score of the top players together.
@@ -136,6 +140,11 @@ static class HighScoreController
 			//for scores 1 - 9 use 01 - 09
 			if (i < 9) {
 				SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value, Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
+				//Store high score to beat - by Jeremy Toh
+				if (i == 0) 
+				{
+					HIGHSCORETOBEAT = s.Value;
+				}
 			} else {
 				SwinGame.DrawText(i + 1 + ":   " + s.Name + "   " + s.Value, Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
 			}
@@ -198,11 +207,18 @@ static class HighScoreController
 			_Scores.RemoveAt(_Scores.Count - 1);
 			_Scores.Add(s);
 			_Scores.Sort();
+			SaveScores ();
 
 			GameController.EndCurrentState();
 		}
 	}
+	//HighScoreToBeat properties - by Jeremy Toh
+	public static int HighScoreToBeat  
+	{
+		get{ return HIGHSCORETOBEAT;}
+	}
 }
+
 
 //=======================================================
 //Service provided by Telerik (www.telerik.com)
