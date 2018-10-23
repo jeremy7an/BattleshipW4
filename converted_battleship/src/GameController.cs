@@ -162,6 +162,7 @@ public static class GameController
 			UtilityFunctions.Message = "The AI " + result.ToString();
 		}
 
+
 		switch (result.Value) {
 			case ResultOfAttack.Destroyed:
 				PlayHitSequence(result.Row, result.Column, isHuman);
@@ -343,6 +344,15 @@ public static class GameController
 		}
 
 		UtilityFunctions.DrawAnimations();
+
+		//When m is clicked music is stopped
+		if (SwinGame.KeyTyped (KeyCode.vk_m)) {
+			GameResources.Mute ();
+		} 
+		//When n is clicked background music plays again
+		if(SwinGame.KeyTyped(KeyCode.vk_n)){
+			GameResources.Unmute ();
+		}
 
 		SwinGame.RefreshScreen();
 	}

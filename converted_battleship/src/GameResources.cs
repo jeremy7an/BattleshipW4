@@ -42,9 +42,6 @@ public static class GameResources
 		NewImage("Explosion", "explosion.png");
 		NewImage("Splash", "splash.png");
 
-		//Mute/Unmute
-		NewImage ("Mute", "mute.png");
-		NewImage ("Unmute", "unmute.png");
 
 	}
 
@@ -236,6 +233,18 @@ public static class GameResources
 		SwinGame.FreeBitmap(_LoaderFull);
 		Audio.FreeSoundEffect(_StartSound);
 		SwinGame.ChangeScreenSize(width, height);
+	}
+
+	//SwinGame does not have a proper mute function. So stopMusic function was used instead
+	public static void Mute ()
+	{
+		SwinGame.StopMusic ();
+	}
+
+	//Plays back the background music
+	public static void Unmute ()
+	{
+		SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
 	}
 
 	private static void NewFont(string fontName, string filename, int size)
