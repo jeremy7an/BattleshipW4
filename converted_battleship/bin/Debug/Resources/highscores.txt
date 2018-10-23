@@ -2,10 +2,15 @@
 rip165
 qwe164
 AAA100
+Al 93
 BBB90
 CCC80
 DDD70
 EEE60
 FFF50
-GGG40
-HHH30
+<<<<<<< HEAD
+A  46
+=======
+ggg45
+lol43
+>>>>>>> aeb66643241e1defce0ce0d17230544e8baafba0
