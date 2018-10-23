@@ -9,7 +9,12 @@ DDD70
 EEE60
 FFF50
 <<<<<<< HEAD
+<<<<<<< HEAD
 A  46
+=======
+ggg45
+lol43
+>>>>>>> aeb66643241e1defce0ce0d17230544e8baafba0
 =======
 ggg45
 lol43
