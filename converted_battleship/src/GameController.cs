@@ -86,6 +86,9 @@ public static class GameController
 				break;
 		}
 
+		//Display highest score when game start
+		HighScoreController.DrawHighScores ();
+
 		_human = new Player(_theGame);
 
 		//AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
