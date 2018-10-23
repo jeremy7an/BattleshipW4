@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using SwinGameSDK;
+//adds in the timer functions from the system
 using System.Timers;
 
 /// <summary>
@@ -131,6 +132,8 @@ static class UtilityFunctions
 			initialTimer = true;
 			timer.Start ();
 		}
+
+		// ticks work in milliseconds
 		var second = timer.Ticks / 1000;
 		var minute = timer.Ticks / 60000;
 		if (GameController.CurrentState == GameState.Discovering) {
