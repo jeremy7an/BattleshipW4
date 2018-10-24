@@ -238,13 +238,13 @@ public static class GameResources
 	//SwinGame does not have a proper mute function. So stopMusic function was used instead
 	public static void Mute ()
 	{
-		SwinGame.StopMusic ();
+		SwinGame.PauseMusic ();
 	}
 
 	//Plays back the background music
 	public static void Unmute ()
 	{
-		SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
+		SwinGame.ResumeMusic();
 	}
 
 	private static void NewFont(string fontName, string filename, int size)
