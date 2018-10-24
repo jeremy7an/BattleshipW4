@@ -59,6 +59,7 @@ public static class GameController
 		_state.Push(GameState.ViewingMainMenu);
 	}
 
+
 	/// <summary>
 	/// Starts a new game.
 	/// </summary>
@@ -161,6 +162,7 @@ public static class GameController
 		} else {
 			UtilityFunctions.Message = "The AI " + result.ToString();
 		}
+
 
 		switch (result.Value) {
 			case ResultOfAttack.Destroyed:
@@ -343,6 +345,15 @@ public static class GameController
 		}
 
 		UtilityFunctions.DrawAnimations();
+
+		//When m is clicked music is stopped
+		if (SwinGame.KeyTyped (KeyCode.vk_m)) {
+			GameResources.Mute ();
+		} 
+		//When n is clicked background music plays again
+		if(SwinGame.KeyTyped(KeyCode.vk_n)){
+			GameResources.Unmute ();
+		}
 
 		SwinGame.RefreshScreen();
 	}

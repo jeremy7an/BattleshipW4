@@ -5,6 +5,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using SwinGameSDK;
+//adds in the timer functions from the system
+using System.Timers;
+
 /// <summary>
 /// This includes a number of utility methods for
 /// drawing and interacting with the Mouse.
@@ -99,6 +102,9 @@ static class UtilityFunctions
 		SMALL_FIELD_CELL_GAP);
 	}
 
+	static SwinGameSDK.Timer timer = new SwinGameSDK.Timer ();
+	static bool initialTimer = false;
+
 	/// <summary>
 	/// Draws the player's grid and ships.
 	/// </summary>
@@ -120,6 +126,21 @@ static class UtilityFunctions
 
 		int rowTop = 0;
 		int colLeft = 0;
+
+		//starts the timer 
+		if (!initialTimer) {
+			initialTimer = true;
+			timer.Start ();
+		}
+
+		// ticks work in milliseconds
+		var second = timer.Ticks / 1000;
+		var minute = timer.Ticks / 60000;
+		if (GameController.CurrentState == GameState.Discovering) {
+			SwinGame.DrawText ("Game Timer: " + minute + ":" + second % 60, Color.White, 
+			                   GameResources.GameFont ("Menu"), rowTop = 342, colLeft + 100);
+		}
+
 
 		//Draw the grid
 		for (int row = 0; row <= 9; row++) {
