@@ -59,7 +59,6 @@ public static class GameController
 		_state.Push(GameState.ViewingMainMenu);
 	}
 
-
 	/// <summary>
 	/// Starts a new game.
 	/// </summary>
@@ -163,7 +162,6 @@ public static class GameController
 			UtilityFunctions.Message = "The AI " + result.ToString();
 		}
 
-
 		switch (result.Value) {
 			case ResultOfAttack.Destroyed:
 				PlayHitSequence(result.Row, result.Column, isHuman);
@@ -179,11 +177,6 @@ public static class GameController
 					SwinGame.RefreshScreen();
 				}
 
-			if (HumanPlayer.PlayerGrid.ShipsKilled == 4) {
-				SwinGame.DrawBitmap(GameResources.GameImage("Warning"), 0, 0);
-				SwinGame.Delay(5);
-				SwinGame.DrawTextLines("One ship left only!", Color.Green, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-			}
 				if (HumanPlayer.IsDestroyed) {
 				Audio.PlaySoundEffect(GameResources.GameSound("Lose"));
 				} else {
@@ -350,15 +343,6 @@ public static class GameController
 		}
 
 		UtilityFunctions.DrawAnimations();
-
-		//When m is clicked music is stopped
-		if (SwinGame.KeyTyped (KeyCode.vk_m)) {
-			GameResources.Mute ();
-		} 
-		//When n is clicked background music plays again
-		if(SwinGame.KeyTyped(KeyCode.vk_n)){
-			GameResources.Unmute ();
-		}
 
 		SwinGame.RefreshScreen();
 	}

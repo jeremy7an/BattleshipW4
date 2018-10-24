@@ -23,7 +23,6 @@ public static class GameResources
 		NewImage("Menu", "main_page.jpg");
 		NewImage("Discovery", "discover.jpg");
 		NewImage("Deploy", "deploy.jpg");
-        NewImage ("Warning", "Warning.jpg");
 
 		//Deployment
 		NewImage("LeftRightButton", "deploy_dir_button_horiz.png");
@@ -43,23 +42,22 @@ public static class GameResources
 		NewImage("Explosion", "explosion.png");
 		NewImage("Splash", "splash.png");
 
-
 	}
 
 	private static void LoadSounds()
 	{
 		NewSound("Error", "error.wav");
-		NewSound("Hit", "oof.wav");
+		NewSound("Hit", "hit.wav");
 		NewSound("Sink", "sink.wav");
 		NewSound("Siren", "siren.wav");
 		NewSound("Miss", "miss.wav");
-		NewSound("Winner", "airhorn.wav");
-		NewSound("Lose", "trombone.wav");
+		NewSound("Winner", "winner.wav");
+		NewSound("Lose", "lose.wav");
 	}
 
 	private static void LoadMusic()
 	{
-		NewMusic("Background", "background_music.mp3");
+		NewMusic("Background", "horrordrone.mp3");
 	}
 
 	/// <summary>
@@ -234,18 +232,6 @@ public static class GameResources
 		SwinGame.FreeBitmap(_LoaderFull);
 		Audio.FreeSoundEffect(_StartSound);
 		SwinGame.ChangeScreenSize(width, height);
-	}
-
-	//SwinGame does not have a proper mute function. So stopMusic function was used instead
-	public static void Mute ()
-	{
-		SwinGame.StopMusic ();
-	}
-
-	//Plays back the background music
-	public static void Unmute ()
-	{
-		SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
 	}
 
 	private static void NewFont(string fontName, string filename, int size)
