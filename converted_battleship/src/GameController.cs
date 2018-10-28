@@ -76,6 +76,10 @@ public static class GameController
 
 		//create the players
 		switch (_aiSetting) {
+			//added AIEasy - by Jeremy Toh
+			case AIOption.Easy:
+				_ai = new AIEasyPlayer(_theGame);
+				break;
 			case AIOption.Medium:
 				_ai = new AIMediumPlayer(_theGame);
 				break;
