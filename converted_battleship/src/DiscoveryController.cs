@@ -65,11 +65,12 @@ static class DiscoveryController
 		const int HIGHSCORE_LEFT = 500;
 		const int HIGHSCORE_TOP = 100;
 
-		//uncomment this to show where enemy is during presentation to save time - added by Jeremy Toh
-		//comment back to return game to normall
-		UtilityFunctions.DrawField(GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
-		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
+		//1) uncomment below to show where enemy is during presentation to save time
 
+		//UtilityFunctions.DrawField(GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
+		//UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
+
+		//2) comment back above to return game to normal - added by Jeremy Toh
 
 
 		if ((SwinGame.KeyDown(KeyCode.vk_LSHIFT) || SwinGame.KeyDown(KeyCode.vk_RSHIFT)) & SwinGame.KeyDown(KeyCode.vk_c)) {

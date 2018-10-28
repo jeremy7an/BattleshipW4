@@ -80,6 +80,7 @@
     <Compile Include="src\**\*.cs" />
     <Compile Include="src\HumanPlayer.cs" />
     <Compile Include="FAQ.cs" />
+    <Compile Include="AIEasyPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">
