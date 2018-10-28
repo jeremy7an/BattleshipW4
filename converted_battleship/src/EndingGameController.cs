@@ -24,8 +24,10 @@ static class EndingGameController
 
 		if (GameController.HumanPlayer.IsDestroyed) {
 			SwinGame.DrawTextLines("YOU LOSE!", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
+			SwinGame.DrawTextLines("PRESS ENTER TO PROCEED", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignCenter, 0, 350, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
 		} else {
 			SwinGame.DrawTextLines("-- WINNER --", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
+			SwinGame.DrawTextLines("PRESS ENTER TO PROCEED", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignCenter, 0, 350, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
 		}
 	}
 
@@ -35,7 +37,9 @@ static class EndingGameController
 	/// </summary>
 	public static void HandleEndOfGameInput()
 	{
-		if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_RETURN) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
+		//press escape to continue instead of any key so that msg wont be skipped accidently by user - added by Jeremy Toh
+		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
+			GameResources.Unmute (); //resume music after loser/winner sound effect - added by Jeremy Toh
 			HighScoreController.ReadHighScore(GameController.HumanPlayer.Score);
 			GameController.EndCurrentState();
 		}

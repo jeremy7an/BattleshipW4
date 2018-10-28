@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using SwinGameSDK;
+using System.Windows.Forms; //need this for dialog box for prompt, add this from reference - added by Jeremy Toh
 
 /// <summary>
 /// The menu controller handles the drawing and user interactions
@@ -26,18 +27,31 @@ static class MenuController
 			"PLAY",
 			"SETUP",
 			"SCORES",
+			"MUTE",
 			"QUIT",
 			"FAQ"
+
+			//Added mute on main menu - by Jeremy Tan
+			//Added faq on main menu - by Alibek
 		},
 		new string[] {
 			"RETURN",
 			"SURRENDER",
+			"MUTE",
+			"FAQ",
 			"QUIT"
+
+			//Added mute and faq on game menu (when game is playing) - by Jeremy Toh
 		},
 		new string[] {
 			"EASY",
 			"MEDIUM",
-			"HARD"
+			"HARD",
+			"MUSIC A",
+			"MUSIC B",
+			"MUSIC C"
+
+			//added music choice for players - by Jeremy Toh
 		}
 
 	};
@@ -56,19 +70,25 @@ static class MenuController
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
+	private const int MAIN_MENU_MUTE_BUTTON = 3;
+	private const int MAIN_MENU_QUIT_BUTTON = 4;
+	private const int MAIN_MENU_FAQ_BUTTON = 5;
 
-	private const int MAIN_MENU_QUIT_BUTTON = 3;
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
 	private const int SETUP_MENU_HARD_BUTTON = 2;
+	private const int SETUP_MENU_MUSICA_BUTTON = 3;
+	private const int SETUP_MENU_MUSICB_BUTTON = 4;
+	private const int SETUP_MENU_MUSICC_BUTTON = 5;
+	private const int SETUP_MENU_EXIT_BUTTON = 6;
 
-	private const int SETUP_MENU_EXIT_BUTTON = 3;
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
+	private const int GAME_MENU_MUTE_BUTTON = 2;
+	private const int GAME_MENU_QUIT_BUTTON = 4;
+	private const int GAME_MENU_FAQ_BUTTON = 3;
 
-	private const int GAME_MENU_QUIT_BUTTON = 2;
-
-	private const int MAIN_MENU_FAQ_BUTTON = 4;
+	private static bool isMuted = false; //check if mute - by Jeremy Toh
 
 	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
 
@@ -274,8 +294,24 @@ static class MenuController
 			case MAIN_MENU_TOP_SCORES_BUTTON:
 			GameController.AddNewState(GameState.ViewingHighScores);
 				break;
+			case MAIN_MENU_MUTE_BUTTON:
+			if (isMuted == false)
+			{
+				GameResources.Mute ();
+				isMuted = true;
+				break;
+			}
+			else
+			{
+				GameResources.Unmute ();
+				isMuted = false;
+				break;
+			}
 			case MAIN_MENU_QUIT_BUTTON:
-			GameController.EndCurrentState();
+			//prompt user yes or no when quitting- by Jeremy Toh
+			if (MessageBox.Show ("Quit the Game?", "QUIT", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+				GameController.EndCurrentState ();
+			}
 				break;
 			case MAIN_MENU_FAQ_BUTTON:
 			GameController.AddNewState (GameState.viewingFAQ);
@@ -299,6 +335,22 @@ static class MenuController
 			case SETUP_MENU_HARD_BUTTON:
 			GameController.SetDifficulty(AIOption.Hard);
 				break;
+			//added music choices for players - added by Jeremy Toh
+			case SETUP_MENU_MUSICA_BUTTON:
+			SwinGame.StopMusic ();
+			SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
+			isMuted = false;
+				break;
+			case SETUP_MENU_MUSICB_BUTTON:
+			SwinGame.StopMusic ();
+			SwinGame.PlayMusic (GameResources.GameMusic ("MusicB"));
+			isMuted = false;
+				break;
+			case SETUP_MENU_MUSICC_BUTTON:
+			SwinGame.StopMusic ();
+			SwinGame.PlayMusic (GameResources.GameMusic ("MusicC"));
+			isMuted = false;
+				break;
 		}
 		//Always end state - handles exit button as well
 		GameController.EndCurrentState();
@@ -315,13 +367,38 @@ static class MenuController
 			GameController.EndCurrentState();
 				break;
 			case GAME_MENU_SURRENDER_BUTTON:
-			GameController.EndCurrentState();
+			//prompt user for surrender confirmation - Added by Jeremy Toh
+			if (MessageBox.Show ("Surrender and return to Main Menu?", "SURRENDER", MessageBoxButtons.OKCancel) == DialogResult.OK) {
+				GameController.EndCurrentState ();
 				//end game menu
-			GameController.EndCurrentState();
+				GameController.EndCurrentState ();
 				//end game
+			}
 				break;
+
+			case GAME_MENU_MUTE_BUTTON:
+			if (isMuted == false)
+			{
+				GameResources.Mute ();
+				isMuted = true;
+				break;
+			}
+			else
+			{
+				GameResources.Unmute ();
+				isMuted = false;
+				break;
+			}
+
 			case GAME_MENU_QUIT_BUTTON:
-			GameController.AddNewState(GameState.Quitting);
+			//prompt user yes or no when quitting - Added by Jeremy Toh
+			if (MessageBox.Show ("Quit the Game?", "QUIT", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+				GameController.AddNewState (GameState.Quitting);
+			}
+				break;
+
+			case GAME_MENU_FAQ_BUTTON:
+				GameController.AddNewState (GameState.viewingFAQ);
 				break;
 		}
 	}

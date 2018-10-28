@@ -47,18 +47,19 @@ public static class GameResources
 
 	private static void LoadSounds()
 	{
-		NewSound("Error", "error.wav");
+		NewSound("Error", "newerror.wav");
 		NewSound("Hit", "oof.wav");
 		NewSound("Sink", "sink.wav");
-		NewSound("Siren", "siren.wav");
 		NewSound("Miss", "miss.wav");
-		NewSound("Winner", "airhorn.wav");
+		NewSound("Winner", "newwinner.wav");
 		NewSound("Lose", "trombone.wav");
 	}
 
 	private static void LoadMusic()
 	{
 		NewMusic("Background", "background_music.mp3");
+		NewMusic("MusicB", "musicB.mp3");
+		NewMusic("MusicC", "musicC.mp3");
 	}
 
 	/// <summary>

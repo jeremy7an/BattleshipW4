@@ -180,8 +180,10 @@ public static class GameController
 				}
 
 				if (HumanPlayer.IsDestroyed) {
+				GameResources.Mute ();//mute this so loser and winnner sound dont overlap with music - added by Jeremy Toh
 				Audio.PlaySoundEffect(GameResources.GameSound("Lose"));
 				} else {
+				GameResources.Mute ();
 				Audio.PlaySoundEffect(GameResources.GameSound("Winner"));
 				}
 
