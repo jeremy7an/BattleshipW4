@@ -49,6 +49,8 @@ public enum GameState
 
 	viewingFAQ,
 
+	Warning,
+
 	/// <summary>
 	/// The player has quit. Show ending credits and terminate the game
 	/// </summary>
