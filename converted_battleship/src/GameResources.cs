@@ -53,6 +53,9 @@ public static class GameResources
 		NewSound("Miss", "miss.wav");
 		NewSound("Winner", "newwinner.wav");
 		NewSound("Lose", "trombone.wav");
+        NewSound ("Random", "ran.wav");
+        NewSound ("Start", "start.wav");
+        NewSound ("Up/Right", "arrows.wav");
 	}
 
 	private static void LoadMusic()
