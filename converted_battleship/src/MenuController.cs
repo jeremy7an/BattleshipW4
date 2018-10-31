@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using SwinGameSDK;
 using System.Windows.Forms; //need this for dialog box for prompt, add this from reference - added by Jeremy Toh
+using System.Timers; //JTan
 
 /// <summary>
 /// The menu controller handles the drawing and user interactions
@@ -373,6 +374,7 @@ static class MenuController
 				//end game menu
 				GameController.EndCurrentState ();
 				//end game
+
 			}
 				break;
 
