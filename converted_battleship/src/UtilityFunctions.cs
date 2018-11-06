@@ -102,23 +102,8 @@ static class UtilityFunctions
 		SMALL_FIELD_CELL_GAP);
 	}
 
-	// by Jeremy Tan
-	static SwinGameSDK.Timer timer = new SwinGameSDK.Timer ();
-	static bool initialTimer = false;
-
-	// Player Turn Timer - by Jeremy Toh
-	static SwinGameSDK.Timer timer2 = new SwinGameSDK.Timer ();
-
-	static bool turnwasted = false;
-
-	public static void ResetTimer2 ()
-	{
-		timer2.Reset ();
-	}
-
-	public static bool TurnWasted {
-		get { return turnwasted; }	}
-
+	//static SwinGameSDK.Timer timer = new SwinGameSDK.Timer ();
+	//static bool initialTimer = false;
 	/// <summary>
 	/// Draws the player's grid and ships.
 	/// </summary>
@@ -141,32 +126,22 @@ static class UtilityFunctions
 		int rowTop = 0;
 		int colLeft = 0;
 
-		//starts the timer - by Jeremy Tan
-		if (!initialTimer) {
-			initialTimer = true;
-			timer.Start ();
-			timer2.Start ();
-		}
+		////starts the timer JTan
+		//if (!initialTimer) {
+		//	initialTimer = true;
+		//	timer.Start ();
+		//}
 
-		// ticks work in milliseconds - by Jeremy Tan
-		var second = timer.Ticks / 1000;
-		var minute = timer.Ticks / 60000;
-		if (GameController.CurrentState == GameState.Discovering) {
-			SwinGame.DrawText ("Game Timer: " + minute + ":" + second % 60, Color.White, 
-			                   GameResources.GameFont ("Menu"), rowTop = 342, colLeft + 100);
-		}
+		//// ticks work in milliseconds JTan
+		//var second = timer.Ticks / 1000;
+		//var minute = timer.Ticks / 60000;
+		//if (GameController.CurrentState == GameState.Discovering) {
+		//	SwinGame.DrawText ("Game Timer: " + minute + ":" + second % 60, Color.White, 
+		//	                   GameResources.GameFont ("Menu"), rowTop = 342, colLeft + 100);
+		//}
 
-		// ticks work in seconds and draw turn timer on screen - by Jeremy Toh
-		var second2 = timer2.Ticks / 1000;
-		if (GameController.CurrentState == GameState.Discovering) {
-			SwinGame.DrawText ("Turn Timer: "+ second2 % 60, Color.White, 
-			                   GameResources.GameFont ("Menu"), rowTop = 670, colLeft + 100);
-			if ((second2 % 60) == 10) //if turn taken reach 10 seconds, user lost automatically
-			{
-				turnwasted = true;
-				GameController.SwitchState (GameState.EndingGame);
-			}
-		}
+
+
 
 
 		//Draw the grid

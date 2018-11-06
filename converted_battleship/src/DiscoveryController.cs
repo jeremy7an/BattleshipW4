@@ -19,10 +19,22 @@ static class DiscoveryController
 	/// Escape opens the game menu. Clicking the mouse will
 	/// attack a location.
 	/// </remarks>
-	public static void HandleDiscoveryInput()
+	public static void HandleDiscoveryInput(Timer check)
 	{
+
+		// ticks work in milliseconds JTan
+		var timestamp = SwinGame.TimerTicks(check);
+		var time = Math.Abs(timestamp/1000);
+
+
+		//Draws the game timer to screen
+			SwinGame.DrawText ("Game Timer: " + time.ToString(), Color.White, 
+		GameResources.GameFont ("Menu"), 172, 300);
+		//refreshes the screen to show the number
+		SwinGame.RefreshScreen ();
 		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
 			GameController.AddNewState(GameState.ViewingGameMenu);
+			SwinGame.ResetTimer (check);
 		}
 
 		if (SwinGame.MouseClicked(MouseButton.LeftButton)) {
@@ -64,6 +76,7 @@ static class DiscoveryController
 		//Highest score screen position - by Jeremy Toh
 		const int HIGHSCORE_LEFT = 500;
 		const int HIGHSCORE_TOP = 100;
+
 
 		//1) uncomment below to show where enemy is during presentation to save time
 

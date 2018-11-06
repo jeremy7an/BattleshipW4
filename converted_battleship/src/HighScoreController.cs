@@ -36,9 +36,7 @@ static class HighScoreController
 
 		public int Value;
 
-		public int Minutes;
 
-		public int Seconds;
 		/// <summary>
 		/// Allows scores to be compared to facilitate sorting
 		/// </summary>
@@ -97,6 +95,7 @@ static class HighScoreController
 		input.Close();
 	}
 
+
 	/// <summary>
 	/// Saves the scores back to the highscores text file.
 	/// </summary>
@@ -118,7 +117,7 @@ static class HighScoreController
 		output.WriteLine(_Scores.Count);
 
 		foreach (Score s in _Scores) {
-			output.WriteLine(s.Name + s.Value + s.Minutes + s.Seconds);
+			output.WriteLine(s.Name + s.Value);
 		}
 
 		output.Close();
@@ -147,7 +146,7 @@ static class HighScoreController
 
 			//for scores 1 - 9 use 01 - 09
 			if (i < 9) {
-				SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value + "   " + s.Minutes + ":" + s.Seconds, Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
+				SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value, Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
 				//Store high score to beat - by Jeremy Toh
 				if (i == 0) 
 				{

@@ -24,6 +24,10 @@ public static class GameController
 	private static AIOption _aiSetting;
 
 	private static Musicsel _musSet;
+
+	//time test JTan
+	public static Timer check = new SwinGameSDK.Timer ();
+
 	/// <summary>
 	/// Returns the current state of the game, indicating which screen is
 	/// currently being used
@@ -220,8 +224,9 @@ public static class GameController
 		_theGame.AddDeployedPlayer(_human);
 		_theGame.AddDeployedPlayer(_ai);
 
-		UtilityFunctions.ResetTimer2 ();
-
+		//timer test 2
+		check = SwinGame.CreateTimer ();
+		SwinGame.StartTimer (check);
 		SwitchState(GameState.Discovering);
 	}
 
@@ -235,7 +240,6 @@ public static class GameController
 	/// </remarks>
 	public static void Attack(int row, int col)
 	{
-		UtilityFunctions.ResetTimer2 ();
 		AttackResult result = default(AttackResult);
 		result = _theGame.Shoot(row, col);
 		CheckAttackResult(result);
@@ -302,7 +306,7 @@ public static class GameController
 			DeploymentController.HandleDeploymentInput();
 				break;
 			case GameState.Discovering:
-			DiscoveryController.HandleDiscoveryInput();
+			DiscoveryController.HandleDiscoveryInput(check);
 				break;
 			case GameState.EndingGame:
 			EndingGameController.HandleEndOfGameInput();
@@ -322,6 +326,8 @@ public static class GameController
 
 		UtilityFunctions.UpdateAnimations();
 	}
+
+
 
 	/// <summary>
 	/// Draws the current state of the game to the screen.
