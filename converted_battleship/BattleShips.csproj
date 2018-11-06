@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="src\**\*.cs" />
     <Compile Include="src\HumanPlayer.cs" />
+    <Compile Include="Musicsel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="SwinGame">

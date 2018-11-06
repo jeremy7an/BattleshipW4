@@ -22,6 +22,8 @@ public static class GameController
 	private static Stack<GameState> _state = new Stack<GameState>();
 
 	private static AIOption _aiSetting;
+
+	private static Musicsel _musSet;
 	/// <summary>
 	/// Returns the current state of the game, indicating which screen is
 	/// currently being used
@@ -308,6 +310,11 @@ public static class GameController
 			case GameState.viewingFAQ:
 			FAQ.HandleFAQ();
 			break;
+			case GameState.SelectMusic:
+			MenuController.HandleMusicMenuInput();
+			break;
+
+
 		}
 
 		UtilityFunctions.UpdateAnimations();
@@ -347,6 +354,9 @@ public static class GameController
 				break;
 			case GameState.viewingFAQ:
 			FAQ.DrawFAQ();
+			break;
+			case GameState.SelectMusic:
+			MenuController.DrawMusic();
 			break;
 		}
 
@@ -402,6 +412,9 @@ public static class GameController
 		_aiSetting = setting;
 	}
 
+	public static void SetMusic (Musicsel m)
+	{
+		_musSet = m;		}
 }
 
 //=======================================================

@@ -30,7 +30,8 @@ static class MenuController
 			"SCORES",
 			"MUTE",
 			"QUIT",
-			"FAQ"
+			"FAQ",
+			"MUSIC"
 
 			//Added mute on main menu - by Jeremy Tan
 			//Added faq on main menu - by Alibek
@@ -48,11 +49,14 @@ static class MenuController
 			"EASY",
 			"MEDIUM",
 			"HARD",
-			"MUSIC A",
-			"MUSIC B",
-			"MUSIC C"
-
 			//added music choice for players - by Jeremy Toh
+		},
+
+		new string[]
+		{
+			"MUSICA",
+			"MUSICB",
+			"MUSICC"
 		}
 
 	};
@@ -68,19 +72,21 @@ static class MenuController
 	private const int GAME_MENU = 1;
 
 	private const int SETUP_MENU = 2;
+	private const int MUSIC_MENU = 3;
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
 	private const int MAIN_MENU_MUTE_BUTTON = 3;
 	private const int MAIN_MENU_QUIT_BUTTON = 4;
 	private const int MAIN_MENU_FAQ_BUTTON = 5;
+	private const int MAIN_MENU_MUSIC_BUTTON = 6;
 
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
 	private const int SETUP_MENU_HARD_BUTTON = 2;
-	private const int SETUP_MENU_MUSICA_BUTTON = 3;
-	private const int SETUP_MENU_MUSICB_BUTTON = 4;
-	private const int SETUP_MENU_MUSICC_BUTTON = 5;
+	private const int MUSIC_MENU_MUSICA_BUTTON = 0;
+	private const int MUSIC_MENU_MUSICB_BUTTON = 1;
+	private const int MUSIC_MENU_MUSICC_BUTTON = 2;
 	private const int SETUP_MENU_EXIT_BUTTON = 6;
 
 	private const int GAME_MENU_RETURN_BUTTON = 0;
@@ -115,6 +121,14 @@ static class MenuController
 		}
 	}
 
+	public static void HandleMusicMenuInput ()
+	{
+		bool handled = false;
+		handled = HandleMenuInput (MUSIC_MENU, 1, 6);
+
+		if (!handled) {
+			HandleMenuInput (MAIN_MENU, 0, 0);
+		}		}
 	/// <summary>
 	/// Handle input in the game menu.
 	/// </summary>
@@ -194,8 +208,17 @@ static class MenuController
 
 		DrawButtons(MAIN_MENU);
 		DrawButtons(SETUP_MENU, 1, 1);
+
 	}
 
+	public static void DrawMusic ()
+	{
+		//Clears the Screen to Black
+		//SwinGame.DrawText("Settings", Color.White, GameFont("ArialLarge"), 50, 50)
+
+		DrawButtons (MAIN_MENU);
+		DrawButtons (MUSIC_MENU, 1, 6);
+		}
 	/// <summary>
 	/// Draw the buttons associated with a top level menu.
 	/// </summary>
@@ -276,6 +299,9 @@ static class MenuController
 			case GAME_MENU:
 				PerformGameMenuAction(button);
 				break;
+			case MUSIC_MENU:
+				PerformMusicMenuAction(button);
+				break;
 		}
 	}
 
@@ -317,6 +343,10 @@ static class MenuController
 			case MAIN_MENU_FAQ_BUTTON:
 			GameController.AddNewState (GameState.viewingFAQ);
 			break;
+
+			case MAIN_MENU_MUSIC_BUTTON:
+			GameController.AddNewState (GameState.SelectMusic);
+			break;
 		}
 	}
 
@@ -336,27 +366,36 @@ static class MenuController
 			case SETUP_MENU_HARD_BUTTON:
 			GameController.SetDifficulty(AIOption.Hard);
 				break;
-			//added music choices for players - added by Jeremy Toh
-			case SETUP_MENU_MUSICA_BUTTON:
-			SwinGame.StopMusic ();
-			SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
-			isMuted = false;
-				break;
-			case SETUP_MENU_MUSICB_BUTTON:
-			SwinGame.StopMusic ();
-			SwinGame.PlayMusic (GameResources.GameMusic ("MusicB"));
-			isMuted = false;
-				break;
-			case SETUP_MENU_MUSICC_BUTTON:
-			SwinGame.StopMusic ();
-			SwinGame.PlayMusic (GameResources.GameMusic ("MusicC"));
-			isMuted = false;
-				break;
 		}
 		//Always end state - handles exit button as well
 		GameController.EndCurrentState();
 	}
 
+	private static void PerformMusicMenuAction (int button)
+	{
+		switch (button) {
+		//added music choices for players - added by Jeremy Toh
+		case MUSIC_MENU_MUSICA_BUTTON:
+			GameController.SetMusic(Musicsel.musicA);
+			SwinGame.StopMusic ();
+			SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
+			isMuted = false;
+			break;
+		case MUSIC_MENU_MUSICB_BUTTON:
+			GameController.SetMusic(Musicsel.musicB);
+			SwinGame.StopMusic ();
+			SwinGame.PlayMusic (GameResources.GameMusic ("MusicB"));
+			isMuted = false;
+			break;
+		case MUSIC_MENU_MUSICC_BUTTON:
+			GameController.SetMusic(Musicsel.musicC);
+			SwinGame.StopMusic ();
+			SwinGame.PlayMusic (GameResources.GameMusic ("MusicC"));
+			isMuted = false;
+			break;
+		}
+		//Always end state - handles exit button as well
+		GameController.EndCurrentState ();		}
 	/// <summary>
 	/// The game menu was clicked, perform the button's action.
 	/// </summary>
