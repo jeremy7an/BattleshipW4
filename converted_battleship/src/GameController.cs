@@ -220,6 +220,8 @@ public static class GameController
 		_theGame.AddDeployedPlayer(_human);
 		_theGame.AddDeployedPlayer(_ai);
 
+		UtilityFunctions.ResetTimer2 ();
+
 		SwitchState(GameState.Discovering);
 	}
 
@@ -233,6 +235,7 @@ public static class GameController
 	/// </remarks>
 	public static void Attack(int row, int col)
 	{
+		UtilityFunctions.ResetTimer2 ();
 		AttackResult result = default(AttackResult);
 		result = _theGame.Shoot(row, col);
 		CheckAttackResult(result);
