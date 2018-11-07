@@ -74,7 +74,7 @@ static class DiscoveryController
 		const int HITS_TOP = 206;
 		const int SPLASH_TOP = 256;
 		//Highest score screen position - by Jeremy Toh
-		const int HIGHSCORE_LEFT = 500;
+		const int HIGHSCORE_LEFT = 400;
 		const int HIGHSCORE_TOP = 100;
 
 

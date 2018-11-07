@@ -226,6 +226,9 @@ public static class GameController
 
 		//timer test 2
 		check = SwinGame.CreateTimer ();
+
+		UtilityFunctions.ResetTimer2 ();
+
 		SwinGame.StartTimer (check);
 		SwitchState(GameState.Discovering);
 	}
@@ -240,6 +243,7 @@ public static class GameController
 	/// </remarks>
 	public static void Attack(int row, int col)
 	{
+		UtilityFunctions.ResetTimer2 ();
 		AttackResult result = default(AttackResult);
 		result = _theGame.Shoot(row, col);
 		CheckAttackResult(result);

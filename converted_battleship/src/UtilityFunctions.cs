@@ -103,7 +103,20 @@ static class UtilityFunctions
 	}
 
 	//static SwinGameSDK.Timer timer = new SwinGameSDK.Timer ();
-	//static bool initialTimer = false;
+	static bool initialTimer = false;
+
+	// Player Turn Timer - by Jeremy Toh		 	
+		static SwinGameSDK.Timer timer2 = new SwinGameSDK.Timer ();         
+		static bool turnwasted = false;         
+												
+		public static void ResetTimer2 ()           
+		{          
+		timer2.Reset ();            
+		}          
+					
+		public static bool TurnWasted {         
+			get { return turnwasted; }	}
+
 	/// <summary>
 	/// Draws the player's grid and ships.
 	/// </summary>
@@ -127,10 +140,10 @@ static class UtilityFunctions
 		int colLeft = 0;
 
 		////starts the timer JTan
-		//if (!initialTimer) {
-		//	initialTimer = true;
-		//	timer.Start ();
-		//}
+		if (!initialTimer) {
+			initialTimer = true;
+			timer2.Start ();
+		}
 
 		//// ticks work in milliseconds JTan
 		//var second = timer.Ticks / 1000;
@@ -140,6 +153,17 @@ static class UtilityFunctions
 		//	                   GameResources.GameFont ("Menu"), rowTop = 342, colLeft + 100);
 		//}
 
+			// ticks work in seconds and draw turn timer on screen - by Jeremy Toh		 				
+			var second2 = timer2.Ticks / 1000;		 					
+			if (GameController.CurrentState == GameState.Discovering) {		 						
+ 			SwinGame.DrawText ("Turn Timer: "+ second2 % 60, Color.White, 		 						
+ 			                   GameResources.GameFont ("Menu"), rowTop = 600, colLeft + 100);		 					
+ 			if ((second2 % 60) == 10) //if turn taken reach 10 seconds, user lost automatically		 				
+ 			{		 					
+ 				turnwasted = true;		 							
+ 				GameController.SwitchState (GameState.EndingGame);		 					
+ 			}		 							
+ 		}
 
 
 
