@@ -31,8 +31,8 @@ static class MenuController
 			"MUTE",
 			"QUIT",
 			"FAQ",
-			"MUSIC"
-
+			"MUSIC",
+			"FULL(SCR)"
 			//Added mute on main menu - by Jeremy Tan
 			//Added faq on main menu - by Alibek
 		},
@@ -80,6 +80,7 @@ static class MenuController
 	private const int MAIN_MENU_QUIT_BUTTON = 4;
 	private const int MAIN_MENU_FAQ_BUTTON = 5;
 	private const int MAIN_MENU_MUSIC_BUTTON = 6;
+	private const int MAIN_MENU_FULLSCREEN_BUTTON = 7;
 
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
@@ -346,6 +347,10 @@ static class MenuController
 
 			case MAIN_MENU_MUSIC_BUTTON:
 			GameController.AddNewState (GameState.SelectMusic);
+			break;
+
+			case MAIN_MENU_FULLSCREEN_BUTTON:
+			GameResources.FullScreen();
 			break;
 		}
 	}

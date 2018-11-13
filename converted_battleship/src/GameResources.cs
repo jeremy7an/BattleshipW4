@@ -100,6 +100,11 @@ public static class GameResources
 		return _Sounds[sound];
 	}
 
+	public static void FullScreen ()
+	{
+		SwinGame.ToggleFullScreen ();
+	}
+
 	/// <summary>
 	/// Gets the music loaded in the Resources
 	/// </summary>

@@ -4,12 +4,12 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="src\UtilityFunctions.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="src\GameResources.cs">
     <Files>
-      <File FileName="src\GameResources.cs" Line="9" Column="21" />
+      <File FileName="src\GameResources.cs" Line="105" Column="32" />
       <File FileName="src\GameController.cs" Line="183" Column="33" />
       <File FileName="src\UtilityFunctions.cs" Line="116" Column="6" />
-      <File FileName="src\MenuController.cs" Line="82" Column="47" />
+      <File FileName="src\MenuController.cs" Line="33" Column="10" />
       <File FileName="src\GameLogic.cs" Line="22" Column="27" />
       <File FileName="src\EndingGameController.cs" Line="15" Column="2" />
       <File FileName="src\GameState.cs" Line="34" Column="2" />
